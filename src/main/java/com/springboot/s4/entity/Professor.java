@@ -27,5 +27,5 @@ public class Professor {
 
     @OneToMany
     @JoinColumn(name = "professor_id")
-    private List<Student> students = new ArrayList<>();
+    private List<StudentEntity> students = new ArrayList<>();
 }
