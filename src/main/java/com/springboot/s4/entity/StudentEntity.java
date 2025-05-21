@@ -22,8 +22,7 @@ public class StudentEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToOne(mappedBy = "Subject")
-    @ToString.Exclude
-    @JoinColumn(name="id")
-    private Subject subject;
+    @OneToOne
+    @JoinColumn(name = "student_id")
+    private StudentEntity student;
 }
