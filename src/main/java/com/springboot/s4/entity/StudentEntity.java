@@ -18,4 +18,12 @@ public class StudentEntity {
     private Long id;
 
     private String name;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @OneToOne(mappedBy = "Subject")
+    @ToString.Exclude
+    @JoinColumn(name="id")
+    private Subject subject;
 }
