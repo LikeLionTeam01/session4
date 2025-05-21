@@ -27,5 +27,6 @@ public class Professor {
 
     @OneToMany
     @JoinColumn(name = "professor_id")
+    @ToString.Exclude
     private List<StudentEntity> students = new ArrayList<>();
 }
