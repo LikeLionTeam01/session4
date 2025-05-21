@@ -23,7 +23,7 @@ public class StudentRepositoryTest {
 
     @Test
     void studentWithSubjectTest() {
-        Subject subject = new Subject(null, "C언어", null); // 교수는 null 처리
+        Subject subject = new Subject(null, "C언어", null);
         subjectRepository.save(subject);
 
         StudentEntity student = new StudentEntity(null, "김학생", "kim@example.com", subject);

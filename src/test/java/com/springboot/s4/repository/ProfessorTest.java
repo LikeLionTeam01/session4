@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 @SpringBootTest
 @Transactional
 @Rollback(value = false)
@@ -21,10 +23,12 @@ public class ProfessorTest {
 
     @Test
     void testSubjectAndProfessor() {
-        Professor professor = professorRepository.save(new Professor(null, "이교수", "lee@example.com", null));
-        subjectRepository.save(new Subject(null, "C언어", professor));
+        Professor professor = new Professor(null, "이교수", "lee@example.com", new ArrayList<>());
+        professorRepository.save(professor);
+
+        Subject subject = new Subject(null, "C언어", professor);
+        subjectRepository.save(subject);
 
         subjectRepository.findAll().forEach(System.out::println);
     }
 }
-
