@@ -24,5 +24,5 @@ public class StudentEntity {
 
     @OneToOne
     @JoinColumn(name = "subject_id")
-    private StudentEntity student;
+    private Subject subject;
 }
