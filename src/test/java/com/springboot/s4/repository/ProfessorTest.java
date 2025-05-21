@@ -18,15 +18,20 @@ public class ProfessorTest {
     @Test
     void testSubjectAndProfessor() {
         Professor professor = new Professor();
-        professor.setName("윤교수");
-        professor.setEmail("yoon@example.com");
+        professor.setName("신교수");
+        professor.setEmail("sss@example.com");
         professorRepository.save(professor);
 
         Subject subject = new Subject();
-        subject.setName("파이썬");
+        subject.setName("자바");
         subject.setProfessor(professor);
         subjectRepository.save(subject);
 
-        subjectRepository.findAll().forEach(System.out::println);
+        Subject savedSubject = subjectRepository.findById(subject.getId())
+                .orElseThrow(() -> new RuntimeException("Subject not found"));
+        Professor savedProfessor = savedSubject.getProfessor();
+
+        System.out.println("Subject: " + savedSubject);
+        System.out.println("Professor: " + savedProfessor);
     }
 }
