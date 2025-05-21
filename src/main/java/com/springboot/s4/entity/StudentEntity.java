@@ -23,6 +23,6 @@ public class StudentEntity {
     private String email;
 
     @OneToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "subject_id")
     private StudentEntity student;
 }
